@@ -10,7 +10,7 @@ public class Vehicle {
      * Vehicle class contructor.
      *
      * @param vehicleType the enum corresponding to vehicle type
-     * @param fuelType the enum corresponding to fuel type
+     * @param fuelType    the enum corresponding to fuel type
      */
     public Vehicle(VehicleType vehicleType, FuelType fuelType) {
         this.vehicleType = vehicleType;

@@ -1,17 +1,17 @@
 package com.excilys.parking.core.model;
-import static com.excilys.parking.services.Constants.*;
 
 public enum VehicleType {
-    TWOWHEELES(TWO_WHEELES_NAME, TWO_WHEELES_RATIO),
-    FOURWHEELES(FOUR_WHEELES_NAME, FOUR_WHEELES_RATIO);
+    TWOWHEELES("moto", (float) 0.5),
+    FOURWHEELES("voiture", 1);
 
     private float ratio;
     private String name;
 
     /**
      * Constructor of VehicleType
-     * @param name
-     * @param ratio
+     *
+     * @param name  vehicle type's name
+     * @param ratio vehicle type's ratio
      */
     VehicleType(String name, float ratio) {
         this.name = name;

@@ -51,15 +51,6 @@ public class PrintTicketServiceTest {
     }
 
     @Test
-    public void return_formatted_time_spent_between_two_times_spaced_by_1h24() {
-        LocalDateTime startDateTime = LocalDateTime.of(2019,3,17,10,10 );
-        LocalDateTime endDateTime = LocalDateTime.of(2019,3,18,10,10 );
-
-        String timeSpentFormatted = service.timeSpentFormatted(1,24);
-        assertThat(timeSpentFormatted).isEqualTo("1h24");
-    }
-
-    @Test
     public void printing_ticket_between_two_times_same_day() {
         Vehicle vehicle = new Vehicle(VehicleType.TWOWHEELES, FuelType.GASOLINE);
         LocalDateTime startDateTime = LocalDateTime.of(2019,3,17,10,10 );
@@ -67,13 +58,6 @@ public class PrintTicketServiceTest {
         ParkingTicket ticket1 = new ParkingTicket(vehicle, startDateTime, endDateTime);
         String expectedOutPut = "- véhicule : moto essence\n- temps passé : 1h0\n- montant dû : 2 euro(s)";
         assertThat(service.printTicket(ticket1)).isEqualTo(expectedOutPut);
-    }
-
-    @Test
-    public void return_text_between_two_times_different_days() {
-        String text = service.textPrinted("vehicle", "fuel", "00h00", 4);
-        String expectedOutPut = "- véhicule : vehicle fuel\n- temps passé : 00h00\n- montant dû : 4 euro(s)";
-        assertThat(text).isEqualTo(expectedOutPut);
     }
 
     @Test
