@@ -14,28 +14,18 @@ public enum FuelType {
     /**
      * private Constructor to bind enum with ratio and name.
      *
-     * @param name
-     * @param ratio
+     * @param name  the name of the fuel type
+     * @param ratio the ratio price of the fuel type
      */
     private FuelType(String name, float ratio) {
         this.name = name;
         this.ratio = ratio;
     }
 
-    /**
-     * getter of price ratio for the fuel.
-     *
-     * @return ratio
-     */
     public float getRatio() {
         return ratio;
     }
 
-    /**
-     * getter of fuel name.
-     *
-     * @return name
-     */
     public String getName() {
         return name;
     }
