@@ -1,13 +1,20 @@
 package com.excilys.parking.core.model;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
 
 public class ParkingTicket {
     private int id;
-    private Client client;
-    private LocalTime startTime;
-    private LocalTime exitTime;
+    private Vehicle vehicle;
+    private LocalDateTime startDateTime;
+    private LocalDateTime exitDateTime;
+
+    public ParkingTicket(Vehicle vehicle, LocalDateTime startDateTime, LocalDateTime exitDateTime) {
+        this.vehicle = vehicle;
+        this.startDateTime = startDateTime;
+        this.exitDateTime = exitDateTime;
+    }
 
     public int getId() {
         return id;
@@ -17,28 +24,28 @@ public class ParkingTicket {
         this.id = id;
     }
 
-    public Client getClient() {
-        return client;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 
-    public LocalTime getStartTime() {
-        return startTime;
+    public LocalDateTime getStartDateTime() {
+        return startDateTime;
     }
 
-    public void setStartTime(LocalTime startTime) {
-        this.startTime = startTime;
+    public void setStartDateTime(LocalTime startDateTime) {
+        this.startDateTime = this.startDateTime;
     }
 
-    public LocalTime getExitTime() {
-        return exitTime;
+    public LocalDateTime getExitDateTime() {
+        return exitDateTime;
     }
 
-    public void setExitTime(LocalTime exitTime) {
-        this.exitTime = exitTime;
+    public void setExitDateTime(LocalDateTime exitDateTime) {
+        this.exitDateTime = this.exitDateTime;
     }
 
     @Override
@@ -47,19 +54,13 @@ public class ParkingTicket {
         if (o == null || getClass() != o.getClass()) return false;
         ParkingTicket that = (ParkingTicket) o;
         return id == that.id &&
-                Objects.equals(client, that.client) &&
-                Objects.equals(startTime, that.startTime) &&
-                Objects.equals(exitTime, that.exitTime);
+                Objects.equals(vehicle, that.vehicle) &&
+                Objects.equals(startDateTime, that.startDateTime) &&
+                Objects.equals(exitDateTime, that.exitDateTime);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, client, startTime, exitTime);
-    }
-
-    public ParkingTicket(Client client, LocalTime startTime, LocalTime exitTime) {
-        this.client = client;
-        this.startTime = startTime;
-        this.exitTime = exitTime;
+        return Objects.hash(id, vehicle, startDateTime, exitDateTime);
     }
 }
