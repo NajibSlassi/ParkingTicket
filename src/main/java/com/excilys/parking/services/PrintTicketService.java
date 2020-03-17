@@ -45,7 +45,7 @@ public class PrintTicketService {
      * computes the price using vehicle and number of started hours.
      * @param vehicle
      * @param numberOfStartedHours
-     * @return
+     * @return a float the result of computing
      */
     public float computePrice(Vehicle vehicle, long numberOfStartedHours){
         float vehicleRatio = vehicle.getVehicleType().getRatio();
@@ -66,12 +66,12 @@ public class PrintTicketService {
     }
 
     /**
-     * returns the display information to print to users.
+     *
      * @param vehicleType
      * @param fuelType
      * @param timeSpentFormatted
      * @param price
-     * @return
+     * @return the text to print to user
      */
     public String textPrinted(String vehicleType, String fuelType, String timeSpentFormatted, long price){
         String text = "- véhicule : "+ vehicleType +" "+ fuelType +
@@ -83,7 +83,7 @@ public class PrintTicketService {
     /**
      * print the ticket using a ticket object.
      * @param ticket
-     * @return
+     * @return the text to print to the user
      */
     public String printTicket(ParkingTicket ticket) {
         LocalDateTime start = ticket.getStartDateTime();

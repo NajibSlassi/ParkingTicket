@@ -8,7 +8,13 @@ public enum FuelType {
 
     private String name;
     private float ratio;
-    FuelType(String name, float ratio) {
+
+    /**
+     * private Constructor to bind enum with ratio and name.
+     * @param name
+     * @param ratio
+     */
+    private FuelType(String name, float ratio) {
         this.name = name;
         this.ratio = ratio;
     }

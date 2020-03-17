@@ -8,6 +8,11 @@ public enum VehicleType {
     private float ratio;
     private String name;
 
+    /**
+     * Constructor of VehicleType
+     * @param name
+     * @param ratio
+     */
     VehicleType(String name, float ratio) {
         this.name = name;
         this.ratio = ratio;

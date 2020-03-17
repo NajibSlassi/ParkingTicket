@@ -6,6 +6,12 @@ public class Vehicle {
     private VehicleType vehicleType;
     private FuelType fuelType;
 
+    /**
+     * Vehicle class contructor.
+     *
+     * @param vehicleType the enum corresponding to vehicle type
+     * @param fuelType the enum corresponding to fuel type
+     */
     public Vehicle(VehicleType vehicleType, FuelType fuelType) {
         this.vehicleType = vehicleType;
         this.fuelType = fuelType;

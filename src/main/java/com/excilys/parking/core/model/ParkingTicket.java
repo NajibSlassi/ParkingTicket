@@ -10,6 +10,13 @@ public class ParkingTicket {
     private LocalDateTime startDateTime;
     private LocalDateTime exitDateTime;
 
+    /**
+     * Constructor of ParkingTicket.
+     *
+     * @param vehicle
+     * @param startDateTime
+     * @param exitDateTime
+     */
     public ParkingTicket(Vehicle vehicle, LocalDateTime startDateTime, LocalDateTime exitDateTime) {
         this.vehicle = vehicle;
         this.startDateTime = startDateTime;
