@@ -17,7 +17,7 @@ public enum FuelType {
      * @param name  the name of the fuel type
      * @param ratio the ratio price of the fuel type
      */
-    private FuelType(String name, float ratio) {
+     FuelType(String name, float ratio) {
         this.name = name;
         this.ratio = ratio;
     }

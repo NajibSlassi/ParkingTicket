@@ -66,8 +66,9 @@ public class Recipe {
 
     @Override
     public String toString() {
+        String minutesToDisplay = minute <= 10 ? "0"+ minute : String.valueOf(minute);
         return "- véhicule : " + vehicleType + " " + fuelType +
-                "\n- temps passé : " + hour + "h" + minute +
+                "\n- temps passé : " + hour + "h" + minutesToDisplay +
                 "\n- montant dû : " + price + " euro(s)";
     }
 }

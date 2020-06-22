@@ -56,7 +56,7 @@ public class PrintTicketServiceTest {
         LocalDateTime startDateTime = LocalDateTime.of(2019,3,17,10,10 );
         LocalDateTime endDateTime = LocalDateTime.of(2019,3,17,11,10 );
         ParkingTicket ticket1 = new ParkingTicket(vehicle, startDateTime, endDateTime);
-        String expectedOutPut = "- véhicule : moto essence\n- temps passé : 1h0\n- montant dû : 2 euro(s)";
+        String expectedOutPut = "- véhicule : moto essence\n- temps passé : 1h00\n- montant dû : 2 euro(s)";
         assertThat(service.printTicket(ticket1)).isEqualTo(expectedOutPut);
     }
 
@@ -66,7 +66,7 @@ public class PrintTicketServiceTest {
         LocalDateTime startDateTime = LocalDateTime.of(2019,3,17,10,10 );
         LocalDateTime endDateTime = LocalDateTime.of(2019,3,18,10,10 );
         ParkingTicket ticket1 = new ParkingTicket(vehicle, startDateTime, endDateTime);
-        String expectedOutPut = "- véhicule : moto essence\n- temps passé : 24h0\n- montant dû : 2 euro(s)";
+        String expectedOutPut = "- véhicule : moto essence\n- temps passé : 24h00\n- montant dû : 2 euro(s)";
         assertThat(service.printTicket(ticket1)).isEqualTo(expectedOutPut);
     }
 
