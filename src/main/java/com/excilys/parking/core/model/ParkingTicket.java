@@ -70,4 +70,14 @@ public class ParkingTicket {
     public int hashCode() {
         return Objects.hash(id, vehicle, startDateTime, exitDateTime);
     }
+
+    @Override
+    public String toString() {
+        return "ParkingTicket{" +
+                "id=" + id +
+                ", vehicle=" + vehicle +
+                ", startDateTime=" + startDateTime +
+                ", exitDateTime=" + exitDateTime +
+                '}';
+    }
 }

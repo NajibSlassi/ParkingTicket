@@ -14,7 +14,18 @@ public class PrintTicketService {
     /**
      * The price of fuel per hour started
      */
-    public static long PRICE = 4;
+    public static long PRICE = 2;
+
+    private static PrintTicketService instance;
+    private PrintTicketService() {
+    }
+
+    public static synchronized PrintTicketService getInstance() {
+        if(instance == null) {
+            instance = new PrintTicketService();
+        }
+        return instance;
+    }
 
     /**
      * computes minutes spent between two localDateTimes.
@@ -24,8 +35,7 @@ public class PrintTicketService {
      * @return minutesSpent
      */
     public long computeNumberOfMinutesSpent(LocalDateTime start, LocalDateTime end) {
-        long minutesSpent = MINUTES.between(start, end);
-        return minutesSpent;
+        return MINUTES.between(start, end);
     }
 
     /**
@@ -35,19 +45,17 @@ public class PrintTicketService {
      * @return startedHours
      */
     public long computeNumberOfStartedHours(long minutesSpent) {
-        long startedHours = minutesSpent / 60 + 1;
-        return startedHours;
+        return minutesSpent / 60 + 1;
     }
 
     /**
      * compute the minutes part to display.
      *
      * @param minutesSpent the total count of minutes spent in the parking
-     * @return
+     * @return minutes
      */
     public long computeNumberOfMinutesSpentInLastHour(long minutesSpent) {
-        long minutes = minutesSpent % 60;
-        return minutes;
+        return minutesSpent % 60;
     }
 
     /**
@@ -60,15 +68,14 @@ public class PrintTicketService {
     public float computePrice(Vehicle vehicle, long numberOfStartedHours) {
         float vehicleRatio = vehicle.getVehicleType().getRatio();
         float fuelRatio = vehicle.getFuelType().getRatio();
-        float result = PRICE * vehicleRatio * fuelRatio;
 
-        return result;
+        return PRICE * vehicleRatio * fuelRatio * numberOfStartedHours;
     }
 
     /**
      * print the ticket using a ticket object.
      *
-     * @param ticket
+     * @param ticket the parking ticket
      * @return the text to print to the user
      */
     public String printTicket(ParkingTicket ticket) {
