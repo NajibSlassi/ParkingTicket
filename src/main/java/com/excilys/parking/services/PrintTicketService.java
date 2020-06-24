@@ -1,6 +1,6 @@
 package com.excilys.parking.services;
 
-import com.excilys.parking.core.model.Recipe;
+import com.excilys.parking.core.model.Receipt;
 import com.excilys.parking.core.model.Vehicle;
 import com.excilys.parking.core.model.ParkingTicket;
 
@@ -15,6 +15,11 @@ public class PrintTicketService {
      * The price of fuel per hour started
      */
     public static long PRICE = 2;
+
+    /**
+     * Number of minutes in 1 hour
+     */
+    public static long NUMBER_OF_MINUTES_IN_ONE_HOUR = 60;
 
     private static PrintTicketService instance;
     private PrintTicketService() {
@@ -45,7 +50,7 @@ public class PrintTicketService {
      * @return startedHours
      */
     public long computeNumberOfStartedHours(long minutesSpent) {
-        return minutesSpent / 60 + 1;
+        return minutesSpent / NUMBER_OF_MINUTES_IN_ONE_HOUR + 1;
     }
 
     /**
@@ -55,7 +60,7 @@ public class PrintTicketService {
      * @return minutes
      */
     public long computeNumberOfMinutesSpentInLastHour(long minutesSpent) {
-        return minutesSpent % 60;
+        return minutesSpent % NUMBER_OF_MINUTES_IN_ONE_HOUR;
     }
 
     /**
@@ -88,7 +93,7 @@ public class PrintTicketService {
         String vehicleTypeName = vehicle.getVehicleType().getName();
         String fuelTypeName = vehicle.getFuelType().getName();
         long price = (long) computePrice(vehicle, startedHours);
-        Recipe recipe = new Recipe(vehicleTypeName, fuelTypeName, startedHours - 1, minutesSpentInLastHour, price);
-        return recipe.toString();
+        Receipt receipt = new Receipt(vehicleTypeName, fuelTypeName, startedHours - 1, minutesSpentInLastHour, price);
+        return receipt.toString();
     }
 }

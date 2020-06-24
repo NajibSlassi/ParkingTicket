@@ -1,6 +1,6 @@
 package com.excilys.parking.core.model;
 
-public class Recipe {
+public class Receipt {
     String vehicleType;
     String fuelType;
     long hour;
@@ -16,7 +16,7 @@ public class Recipe {
      * @param minute      the minute the vehicle entered
      * @param price       the total price to pay
      */
-    public Recipe(String vehicleType, String fuelType, long hour, long minute, long price) {
+    public Receipt(String vehicleType, String fuelType, long hour, long minute, long price) {
         this.vehicleType = vehicleType;
         this.fuelType = fuelType;
         this.hour = hour;
